@@ -1,17 +1,13 @@
 package org.example.settings;
 
-import io.github.cdimascio.dotenv.Dotenv;
-
 public class Constants {
     private static Constants constants;
-    private Dotenv envVariables;
 
     private Constants(){
-        this.envVariables = Dotenv.load();
     }
 
     public Object getConstant(String key){
-        return this.envVariables.get(key);
+        return System.getenv(key);
     }
 
     public static synchronized Constants getConstants(){
